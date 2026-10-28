@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8fbf4" />
+    <meta name="description" content="大声读英语，快乐闯关。Akiko 的互动单词果园，陪小树一起长大。" />
+    <title>Word Orchard · Akiko 的单词果园</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Word Orchard 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 44 44"><path d="M22 36V20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M22 25C9 26 7 16 8 9c9-1 16 3 14 16Z" fill="#8fc867"/><path d="M22 30c12 1 16-8 15-15-9-2-16 3-15 15Z" fill="#4e9a5c"/><circle cx="22" cy="34" r="5" fill="#f5b84b"/></svg>
+          </span>
+          <span class="brand-copy"><strong>Word Orchard</strong><span>Akiko 的单词果园</span></span>
+        </a>
+        <div class="topbar-actions">
+          <span class="season-label"><span class="sun-dot"></span> 阳光正好</span>
+          <button class="map-button" id="map-button" type="button">
+            <i data-lucide="map"></i><span>关卡地图</span>
+          </button>
+          <button class="icon-button sound-toggle" id="sound-toggle" type="button" aria-label="关闭音效" aria-pressed="true" data-tooltip="音效">
+            <i data-lucide="volume-2"></i>
+          </button>
+          <button class="basket-button" id="basket-button" type="button" aria-label="打开我的篮子">
+            <i data-lucide="shopping-basket"></i>
+            <span>我的篮子</span>
+            <span class="basket-count" id="basket-count">0</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="game-shell">
+        <section class="orchard" id="orchard" aria-label="可以采摘的单词果园">
+          <div class="sky-decor" aria-hidden="true">
+            <div class="cloud cloud-one"><span></span><span></span><span></span></div>
+            <div class="cloud cloud-two"><span></span><span></span><span></span></div>
+            <svg class="distant-hills" viewBox="0 0 1440 260" preserveAspectRatio="none"><path d="M0 168C170 56 287 94 402 160c132-128 283-136 425 5 114-104 267-103 369-10 89-52 166-44 244 1v104H0Z" fill="#d9ebc5"/><path d="M0 200c182-77 312-58 438 23 174-93 339-75 472 12 183-96 361-79 530-8v33H0Z" fill="#c7e2ac"/></svg>
+          </div>
+
+          <div class="orchard-heading">
+            <span class="eyebrow" id="part-eyebrow"><i data-lucide="sprout"></i> PART 1 · FRUIT</span>
+            <h1 id="level-title">水果 · 第 1 关</h1>
+            <p id="level-subtitle">读出 4 个单词，让小树再长高一点。</p>
+            <div class="level-progress" aria-label="本关采摘进度">
+              <span class="level-dots" id="level-dots"></span>
+              <span id="level-progress-copy">本关 0 / 4</span>
+            </div>
+          </div>
+
+          <div class="tree-area" id="tree-area">
+            <div class="tree-shadow" aria-hidden="true"></div>
+            <svg class="tree-illustration" viewBox="0 0 700 700" aria-hidden="true">
+              <path d="M316 620c24-99 20-177 7-254-9-54-2-109 25-155 17 62 16 113 17 152 28-45 54-78 89-100-18 46-49 96-67 141-20 68-3 145 23 216Z" fill="#8a5c3d"/>
+              <path d="M347 615c15-116 2-211 8-291 3-39 5-64 0-91 22 54 13 119 18 169 8 82 2 149 14 213Z" fill="#a9744b"/>
+              <path d="M331 389c-33-56-73-92-117-111 51 4 97 35 126 77m43 20c43-62 86-88 132-96-51 23-82 56-116 112" fill="none" stroke="#7d5239" stroke-width="18" stroke-linecap="round"/>
+              <g class="canopy">
+                <path d="M114 353C34 303 64 216 139 204c-8-81 77-121 137-77 34-92 145-96 190-21 77-48 161 15 145 91 79 21 89 119 28 158 30 71-47 128-111 100-34 70-130 76-172 16-63 57-151 18-154-52-64 25-127-22-88-66Z" fill="#3f8753"/>
+                <path d="M101 280c-3-64 57-104 112-82 10-77 99-107 151-54 52-69 145-36 153 37 70-24 126 40 103 101 51 37 25 105-26 119-52 16-84-8-106-37-40 54-118 57-157 8-50 55-131 45-159-10-69 14-111-41-71-82Z" fill="#63a95e"/>
+                <path d="M162 193c30-44 80-43 111-13 28-63 105-78 148-27 46-41 110-11 120 39-69-28-105 10-130 40-55-44-118-34-151 7-31-38-61-53-98-46Z" fill="#8ac76d"/>
+                <path d="M137 346c38-31 78-30 111 2 52-46 108-40 145 5 50-44 117-38 151 11-31 65-91 70-127 35-45 54-111 46-139-5-53 42-123 12-141-48Z" fill="#559a55"/>
+                <g fill="#b4da83" opacity=".65"><ellipse cx="183" cy="235" rx="19" ry="10" transform="rotate(-28 183 235)"/><ellipse cx="294" cy="140" rx="20" ry="11" transform="rotate(-18 294 140)"/><ellipse cx="443" cy="135" rx="18" ry="10" transform="rotate(24 443 135)"/><ellipse cx="548" cy="248" rx="21" ry="11" transform="rotate(-25 548 248)"/><ellipse cx="245" cy="391" rx="20" ry="10" transform="rotate(21 245 391)"/></g>
+              </g>
+              <path d="M289 620c38-17 90-17 132 0l24 24H267Z" fill="#795038"/>
+            </svg>
+            <div class="fruit-layer" id="fruit-layer"></div>
+          </div>
+
+          <div class="meadow" aria-hidden="true">
+            <svg viewBox="0 0 1440 190" preserveAspectRatio="none"><path d="M0 51c207-34 329-7 489 29 179 41 324 22 473-12 187-43 319-37 478-2v124H0Z" fill="#a9d77d"/><path d="M0 98c190-32 361 5 514 27 195 29 366 12 525-18 159-30 277-24 401 2v81H0Z" fill="#8fc76b"/></svg>
+            <div class="grass-blades grass-left"></div>
+            <div class="grass-blades grass-right"></div>
+            <span class="flower flower-one"></span><span class="flower flower-two"></span><span class="flower flower-three"></span>
+          </div>
+
+          <div class="butterfly butterfly-one" aria-hidden="true"><span></span><span></span></div>
+          <div class="butterfly butterfly-two" aria-hidden="true"><span></span><span></span></div>
+
+          <button class="pick-mode is-active" id="pick-mode" type="button" aria-pressed="true">
+            <span class="hand-icon"><img src="/assets/hand.svg" alt="" /></span>
+            <span><strong>小手采摘</strong><small id="pick-mode-label">点这里，开始摘单词</small></span>
+            <span class="mode-indicator"></span>
+          </button>
+
+          <button class="scene-basket" id="scene-basket" type="button" aria-label="查看篮子里的收获">
+            <span class="basket-preview" id="basket-preview"></span>
+            <svg viewBox="0 0 180 150" aria-hidden="true">
+              <path d="M45 68C45 6 135 6 135 68" fill="none" stroke="#a86e3f" stroke-width="10" stroke-linecap="round"/>
+              <path d="M27 62h126l-16 73H43Z" fill="#d99a56"/>
+              <path d="M36 78h108M39 96h102M43 114h94M59 64l6 69M88 64v70M119 64l-6 69" fill="none" stroke="#b87943" stroke-width="5" opacity=".75"/>
+              <path d="M24 62h132v15H24z" rx="7" fill="#edb873"/>
+            </svg>
+            <span class="scene-basket-label">看看我的收获 <i data-lucide="arrow-up-right"></i></span>
+          </button>
+
+          <section class="reading-panel" id="reading-panel" aria-labelledby="reading-title" hidden>
+            <button class="icon-button panel-close" id="close-reading" type="button" aria-label="关闭朗读面板"><i data-lucide="x"></i></button>
+            <div class="reading-fruit" id="reading-fruit"></div>
+            <div class="reading-copy">
+              <span class="reading-kicker" id="reading-title">大声读出来</span>
+              <div class="word-line"><strong id="reading-word">apple</strong><button class="pronounce-button" id="pronounce-button" type="button" aria-label="播放单词发音"><i data-lucide="volume-2"></i></button></div>
+              <span class="reading-meaning" id="reading-meaning">苹果</span>
+            </div>
+            <div class="reading-action">
+              <button class="mic-button" id="mic-button" type="button"><i data-lucide="mic"></i><span>开始朗读</span></button>
+              <span class="listening-status" id="listening-status" aria-live="polite">点击麦克风，再大声读单词</span>
+              <button class="manual-confirm" id="manual-confirm" type="button" hidden>我已大声朗读</button>
+            </div>
+          </section>
+
+          <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="basket-dialog" id="basket-dialog" aria-labelledby="basket-title">
+      <div class="drawer-header">
+        <div><span class="eyebrow">MY LITTLE HARVEST</span><h2 id="basket-title">我的收获</h2></div>
+        <button class="icon-button" id="close-basket" type="button" aria-label="关闭篮子"><i data-lucide="x"></i></button>
+      </div>
+      <div class="basket-progress">
+        <div class="progress-copy"><strong><span id="drawer-count">0</span><small> / 72</small></strong><span>每一个，都是你大声读出来的新单词。</span></div>
+        <div class="progress-track"><span id="progress-fill"></span></div>
+      </div>
+      <div class="basket-tabs" role="tablist" aria-label="篮子内容">
+        <button id="collected-tab" role="tab" aria-selected="true" aria-controls="basket-content" data-tab="collected" type="button">已收集 <span id="collected-tab-count">0</span></button>
+        <button id="all-tab" role="tab" aria-selected="false" aria-controls="basket-content" data-tab="all" type="button">单词图鉴</button>
+      </div>
+      <div class="basket-content" id="basket-content" role="tabpanel"></div>
+      <div class="drawer-footer"><button class="reset-button" id="reset-button" type="button"><i data-lucide="rotate-ccw"></i> 重新种一树</button><span>记录保存在这台设备上</span></div>
+    </dialog>
+
+    <dialog class="confirm-dialog" id="confirm-dialog" aria-labelledby="confirm-title">
+      <span class="confirm-icon"><i data-lucide="sprout"></i></span>
+      <h2 id="confirm-title">重新开始成长之旅？</h2>
+      <p>18 关的进度和篮子里的 72 个单词都会清空，小树会回到最初的样子。</p>
+      <div class="confirm-actions"><button class="secondary-button" id="cancel-reset" type="button">保留收获</button><button class="primary-button" id="confirm-reset" type="button">重新开始</button></div>
+    </dialog>
+
+    <dialog class="map-dialog" id="map-dialog" aria-labelledby="map-title">
+      <div class="map-header">
+        <div><span class="eyebrow">MY LEARNING JOURNEY</span><h2 id="map-title">单词成长地图</h2></div>
+        <button class="icon-button" id="close-map" type="button" aria-label="关闭关卡地图"><i data-lucide="x"></i></button>
+      </div>
+      <div class="map-summary">
+        <div><strong id="map-progress-copy">0 / 18 关</strong><span>从小树苗开始，一关一关长大</span></div>
+        <div class="progress-track"><span id="map-progress-fill"></span></div>
+      </div>
+      <div class="level-map-content" id="level-map-content"></div>
+      <p class="curriculum-note">参照 Cambridge YLE 话题与 CEFR 阶梯编排，非官方课程。</p>
+    </dialog>
+
+    <dialog class="completion-dialog" id="completion-dialog" aria-labelledby="completion-title">
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+      <div class="completion-content">
+        <div class="celebration-mark" aria-hidden="true">
+          <span class="celebration-tree"><i data-lucide="sprout"></i></span>
+          <div class="celebration-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+        </div>
+        <span class="eyebrow" id="completion-kicker">LEVEL COMPLETE</span>
+        <h2 id="completion-title">这一关完成啦！</h2>
+        <p id="completion-message">小树又长高了，新单词也住进了篮子。</p>
+        <div class="completion-words" id="completion-words"></div>
+        <div class="completion-actions">
+          <button class="secondary-button" id="replay-level" type="button"><i data-lucide="rotate-ccw"></i> 再玩一次</button>
+          <button class="primary-button" id="next-level" type="button">前往下一关 <i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
